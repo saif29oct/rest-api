@@ -1,0 +1,22 @@
+services:
+  db:
+    container_name: restapi-postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: client
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - restapi:/data/postgres
+    ports:
+      - "5332:5432"
+    networks:
+      - restapi
+    restart: unless-stopped
+
+networks:
+  restapi:
+    driver: bridge
+
+volumes:
+  restapi:
