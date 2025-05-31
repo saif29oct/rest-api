@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 
 import java.util.Objects;
 
+/**
+ * @author saif
+ */
 @Entity
 public class SoftwareEngineer {
     @Id
@@ -61,7 +64,9 @@ public class SoftwareEngineer {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         SoftwareEngineer that = (SoftwareEngineer) o;
         return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(techStack, that.techStack) && Objects.equals(recommendation, that.recommendation);
     }
